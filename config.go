@@ -1,9 +1,7 @@
 package embeddedpostgres
 
 import (
-	"fmt"
 	"io"
-	"os"
 	"time"
 )
 
@@ -34,119 +32,78 @@ type Config struct {
 // Username:     postgres
 // Password:     postgres
 // StartTimeout: 15 Seconds
-func DefaultConfig() Config {
-	return Config{
-		version:             V18,
-		port:                5432,
-		database:            "postgres",
-		username:            "postgres",
-		password:            "postgres",
-		startTimeout:        15 * time.Second,
-		logger:              os.Stdout,
-		binaryRepositoryURL: "https://repo1.maven.org/maven2",
-	}
-}
+func DefaultConfig() Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // Version will set the Postgres binary version.
 func (c Config) Version(version PostgresVersion) Config {
-	c.version = version
-	return c
+	_ = "STUB: not implemented"
+	return *new(Config)
 }
 
 // Port sets the runtime port that Postgres can be accessed on.
 func (c Config) Port(port uint32) Config {
-	c.port = port
-	return c
+	_ = "STUB: not implemented"
+	return *
+
+	// Database sets the database name that will be created.
+	new(Config)
 }
 
-// Database sets the database name that will be created.
-func (c Config) Database(database string) Config {
-	c.database = database
-	return c
-}
+func (c Config) Database(database string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // Username sets the username that will be used to connect.
-func (c Config) Username(username string) Config {
-	c.username = username
-	return c
-}
+func (c Config) Username(username string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // Password sets the password that will be used to connect.
-func (c Config) Password(password string) Config {
-	c.password = password
-	return c
-}
+func (c Config) Password(password string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // RuntimePath sets the path that will be used for the extracted Postgres runtime directory.
 // If Postgres data directory is not set with DataPath(), this directory is also used as data directory.
-func (c Config) RuntimePath(path string) Config {
-	c.runtimePath = path
-	return c
-}
+func (c Config) RuntimePath(path string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // CachePath sets the path that will be used for storing Postgres binaries archive.
 // If this option is not set, ~/.go-embedded-postgres will be used.
-func (c Config) CachePath(path string) Config {
-	c.cachePath = path
-	return c
-}
+func (c Config) CachePath(path string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // DataPath sets the path that will be used for the Postgres data directory.
 // If this option is set, a previously initialized data directory will be reused if possible.
-func (c Config) DataPath(path string) Config {
-	c.dataPath = path
-	return c
-}
+func (c Config) DataPath(path string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // BinariesPath sets the path of the pre-downloaded postgres binaries.
 // If this option is left unset, the binaries will be downloaded.
-func (c Config) BinariesPath(path string) Config {
-	c.binariesPath = path
-	return c
-}
+func (c Config) BinariesPath(path string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // Locale sets the default locale for initdb
-func (c Config) Locale(locale string) Config {
-	c.locale = locale
-	return c
-}
+func (c Config) Locale(locale string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // Encoding sets the default character set for initdb
-func (c Config) Encoding(encoding string) Config {
-	c.encoding = encoding
-	return c
-}
+func (c Config) Encoding(encoding string) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // StartParameters sets run-time parameters when starting Postgres (passed to Postgres via "-c").
 //
 // These parameters can be used to override the default configuration values in postgres.conf such
 // as max_connections=100. See https://www.postgresql.org/docs/current/runtime-config.html
 func (c Config) StartParameters(parameters map[string]string) Config {
-	c.startParameters = parameters
-	return c
+	_ = "STUB: not implemented"
+	return *new(Config)
 }
 
 // StartTimeout sets the max timeout that will be used when starting the Postgres process and creating the initial database.
 func (c Config) StartTimeout(timeout time.Duration) Config {
-	c.startTimeout = timeout
-	return c
+	_ = "STUB: not implemented"
+	return *new(Config)
 }
 
 // Logger sets the logger for postgres output
-func (c Config) Logger(logger io.Writer) Config {
-	c.logger = logger
-	return c
-}
+func (c Config) Logger(logger io.Writer) Config { _ = "STUB: not implemented"; return *new(Config) }
 
 // BinaryRepositoryURL set BinaryRepositoryURL to fetch PG Binary in case of Maven proxy
 func (c Config) BinaryRepositoryURL(binaryRepositoryURL string) Config {
-	c.binaryRepositoryURL = binaryRepositoryURL
-	return c
+	_ = "STUB: not implemented"
+	return *new(Config)
 }
 
-func (c Config) GetConnectionURL() string {
-	return fmt.Sprintf("postgresql://%s:%s@%s:%d/%s", c.username, c.password, "localhost", c.port, c.database)
-}
+func (c Config) GetConnectionURL() string { _ = "STUB: not implemented"; return "" }
 
 // PostgresVersion represents the semantic version used to fetch and run the Postgres process.
 type PostgresVersion string
